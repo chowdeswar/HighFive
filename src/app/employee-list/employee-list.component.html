@@ -1,0 +1,21 @@
+<div class="container">
+<div class="card mt-3" *ngFor="let data of listEmployees">
+    <div class="row no-gutters">
+      <div class="col-md-3" style="align-items: center;display: flex;">
+        <img width="100px" height="150px" src="{{ data.photoPath }}" class="card-img" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+            <h6 class="card-title"> Gender: {{ data.gender }}</h6>
+          <h6 class="card-title"> Date of Birth: {{ data.dateOfBirth | date: 'longDate' }}</h6>
+          <h6 class="card-title"> Contact Reference: {{ data.contactPreference }}</h6>
+          <h6 class="card-title"> Phone: {{ data.phoneNumber }}</h6>
+          <h6 class="card-title"> Email: {{ data.email }}</h6>
+          <h6 class="card-title"> Department: {{ data.department }}</h6>
+          <h6 class="card-title"> isActive: {{ data.isActive }}</h6>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
