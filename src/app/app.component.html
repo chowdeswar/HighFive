@@ -307,4 +307,19 @@
 
 </div>
 
-<router-outlet></router-outlet>
+<div class="container mt-3">
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <button class="btn btn-outline-primary" routerLinkActive="active" routerLink="/list">List</button>
+    </li>
+    &nbsp; &nbsp;
+    <li class="nav-item">
+      <button class="btn btn-outline-primary" routerLinkActive="active" routerLink="/create">Create</button>
+    </li>
+   
+  </ul>
+</div>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

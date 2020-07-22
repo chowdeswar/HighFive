@@ -1,1 +1,93 @@
-<p>create-employee works!</p>
+<form #employeeForm="ngForm" ngNativeValidate (ngSubmit)="onSubmitEmployeeForm(employeeForm.value)">
+    <div class="card mt-3">
+        <div class="card-header">
+            Create Employee Form *
+        </div>
+        <div class="card-body">
+
+            <div class="form-group">
+                <label for="fulName">Full Name :</label>
+                <input type="text" class="form-control" [(ngModel)]="empModel.FullName" name="fullName" id="fulName"
+                    placeholder="Enter name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email :</label>
+                <input type="text" class="form-control" [(ngModel)]="empModel.email"  name="email" id="email"
+                    placeholder="Enter email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number :</label>
+                <input type="number" class="form-control" [(ngModel)]="empModel.phoneNumber"  name="phone" id="phone"
+                    placeholder="Enter phone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="">Gender</label>
+                <br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" required [(ngModel)]="empModel.gender" name="gender" id="inlineRadio1" value="male">
+                    <label class="form-check-label" for="inlineRadio1">Male</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" required [(ngModel)]="empModel.gender" name="gender" id="inlineRadio2" value="female">
+                    <label class="form-check-label" for="inlineRadio2">Female</label>
+                  </div>
+            </div>
+            <div class="form-group">
+                <label for="">Contact Preference</label>
+                <br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" required [(ngModel)]="empModel.contact" name="contact" id="emailContact" value="email">
+                    <label class="form-check-label" for="emailContact">Email</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" required [(ngModel)]="empModel.contact" name="contact" id="phoneContact" value="phone">
+                    <label class="form-check-label" for="phoneContact">Phone</label>
+                  </div>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" required disabled [(ngModel)]="empModel.isActive" name="isActive" value="" id="isActive">
+                <label class="form-check-label" for="isActive">
+                    is Active
+                </label>
+              </div>
+
+              <div class="form-group">
+                  <label for="department">Department</label>
+                <select class="custom-select" required name="department" id="department" [(ngModel)]="empModel.department">
+                    <option selected value="null">Open this select menu</option>
+                    <option *ngFor="let dept of departments" [value]="dept.id">
+                        {{ dept.name }}
+                    </option>
+                  </select>
+              </div>
+              <div class="form-group">
+                <label for="dob">Date of Birth :</label>
+                <input type="text" bsDatepicker class="form-control" [(ngModel)]="empModel.dob" name="dob" id="dob"
+                    placeholder="Enter date of birth" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Photo Path :</label>
+                <input type="text" class="form-control" [(ngModel)]="empModel.photopath" name="photopath" id="photopath"
+                    placeholder="Enter photo url" required>
+            </div>
+
+            <button type="button" class="btn btn-success" (click)="togglePhotopath()">{{ previewDetails ? 'Hide' : 'Show'}} preview</button>
+
+            <div class="form-group" *ngIf="previewDetails">
+                <img [src]="empModel.photopath" alt="... photopath" width="200" height="200">
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+
+        </div>
+        <!-- <div class="card-footer">
+
+    </div> -->
+    </div>
+</form>
+
+{{ employeeForm.value | json }}

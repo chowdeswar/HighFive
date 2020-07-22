@@ -47,6 +47,63 @@ export class EmployeeListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    const cameras = [
+      { name: 'Candid 1', isactive: true},
+      { name: 'Candid 4', isactive: false},
+      { name: 'Candid 2', isactive: false},
+      { name: 'Candid 3', isactive: true},
+      { name: 'Candid 5', isactive: true},
+    ]
+    let fil = cameras.map((camera) => {
+      return camera.name = "Hey "+ camera.name;
+    })
+    console.log('find ', fil);
+
+    // Arrow function with this keyword context
+
+
+    const cam = {
+      price: 600,
+      age: 20,
+      name: 'John',
+      isActive: true
+    }
+
+    let marry = {
+      price: 600,
+      age: 23,
+      name: 'Marry',
+      isActive: true
+    }
+    let Sam = {
+      price: 600,
+      age: 29,
+      name: 'Sam',
+      isActive: true
+    }
+
+    let user = new Map();
+    user.set('sam', Sam);
+    user.set('marry', marry);
+    user.set('cam', cam);
+    console.log(user);
+
+    for (const [key, value] of user.entries()) {
+        console.log(key, value);
+        for (const iterator in value) {
+            console.log(iterator)
+        }
+    }
+
+
+
+
+
+
+
+
+
+
   }
 
 }

@@ -1,21 +1,70 @@
-<div class="container">
+<!-- <div class="container"> -->
 <div class="card mt-3" *ngFor="let data of listEmployees">
     <div class="row no-gutters">
-      <div class="col-md-3" style="align-items: center;display: flex;">
-        <img width="100px" height="150px" src="{{ data.photoPath }}" class="card-img" alt="...">
+      <div class="col-md-3" style="display: flex;">
+        <img src="{{ data.photoPath }}" class="card-img" alt="...">
       </div>
       <div class="col-md-8">
         <div class="card-body">
-            <h6 class="card-title"> Gender: {{ data.gender }}</h6>
-          <h6 class="card-title"> Date of Birth: {{ data.dateOfBirth | date: 'longDate' }}</h6>
-          <h6 class="card-title"> Contact Reference: {{ data.contactPreference }}</h6>
-          <h6 class="card-title"> Phone: {{ data.phoneNumber }}</h6>
-          <h6 class="card-title"> Email: {{ data.email }}</h6>
-          <h6 class="card-title"> Department: {{ data.department }}</h6>
-          <h6 class="card-title"> isActive: {{ data.isActive }}</h6>
+            <div class="row">
+                <div class="col">
+                    Gender :
+                </div>
+                <div class="col">
+                    {{ data.gender }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    Date of Birth :
+                </div>
+                <div class="col">
+                    {{ data.dateOfBirth | date:'longDate' }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    Contact Reference :
+                </div>
+                <div class="col">
+                    {{ data.contactPreference }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    Phone :
+                </div>
+                <div class="col">
+                    {{ data.phoneNumber ? data.phoneNumber : '-- No Phone Available --' }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    Email :
+                </div>
+                <div class="col">
+                    {{ data.email ? data.email : '-- No Email Available --' }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    Department :
+                </div>
+                <div class="col">
+                    {{ data.department }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    isActive :
+                </div>
+                <div class="col">
+                    {{ data.isActive }}
+                </div>
+            </div>
          
         </div>
       </div>
     </div>
   </div>
-</div>
+<!-- </div> -->
